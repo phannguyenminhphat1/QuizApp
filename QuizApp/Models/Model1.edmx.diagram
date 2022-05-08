@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="da61737897aa47d09d923d7e448c05b6" Name="Diagram1">
-        <EntityTypeShape EntityType="QuizAppModel.student" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizAppModel.tbl_admin" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizAppModel.tbl_question" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizAppModel.tbl_setExam" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="QuizAppModel.FK__tbl_setEx__exam___34C8D9D1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="QuizAppModel.tbl_category" Width="1.5" PointX="3" PointY="8.625" />
-        <AssociationConnector Association="QuizAppModel.FK__tbl_categ__cat_f__37A5467C" />
-        <AssociationConnector Association="QuizAppModel.FK__tbl_quest__q_fk___38996AB5" />
+      <Diagram DiagramId="25552e087c94490e8b74177f9c24d476" Name="Diagram1">
+        <EntityTypeShape EntityType="QuizAppModel.student" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizAppModel.tbl_admin" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizAppModel.tbl_category" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizAppModel.tbl_question" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizAppModel.tbl_setExam" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="QuizAppModel.FK__tbl_setEx__exam___46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizAppModel.FK__tbl_categ__cat_f__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizAppModel.FK__tbl_quest__q_fk___45F365D3" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

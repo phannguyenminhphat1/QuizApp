@@ -27,8 +27,8 @@ namespace QuizApp.Models
     
         public virtual DbSet<student> students { get; set; }
         public virtual DbSet<tbl_admin> tbl_admin { get; set; }
+        public virtual DbSet<tbl_category> tbl_category { get; set; }
         public virtual DbSet<tbl_question> tbl_question { get; set; }
         public virtual DbSet<tbl_setExam> tbl_setExam { get; set; }
-        public virtual DbSet<tbl_category> tbl_category { get; set; }
     }
 }

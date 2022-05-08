@@ -48,7 +48,7 @@
     <Property Name="exam_name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="std_score" Type="int" />
   </EntityType>
-  <Association Name="FK__tbl_categ__cat_f__37A5467C">
+  <Association Name="FK__tbl_categ__cat_f__44FF419A">
     <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
     <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
     <ReferentialConstraint>
@@ -60,7 +60,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tbl_quest__q_fk___38996AB5">
+  <Association Name="FK__tbl_quest__q_fk___45F365D3">
     <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
     <End Role="tbl_question" Type="Self.tbl_question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -72,7 +72,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tbl_setEx__exam___34C8D9D1">
+  <Association Name="FK__tbl_setEx__exam___46E78A0C">
     <End Role="student" Type="Self.student" Multiplicity="0..1" />
     <End Role="tbl_setExam" Type="Self.tbl_setExam" Multiplicity="*" />
     <ReferentialConstraint>
@@ -90,15 +90,15 @@
     <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_question" EntityType="Self.tbl_question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_setExam" EntityType="Self.tbl_setExam" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__tbl_categ__cat_f__37A5467C" Association="Self.FK__tbl_categ__cat_f__37A5467C">
+    <AssociationSet Name="FK__tbl_categ__cat_f__44FF419A" Association="Self.FK__tbl_categ__cat_f__44FF419A">
       <End Role="tbl_admin" EntitySet="tbl_admin" />
       <End Role="tbl_category" EntitySet="tbl_category" />
     </AssociationSet>
-    <AssociationSet Name="FK__tbl_quest__q_fk___38996AB5" Association="Self.FK__tbl_quest__q_fk___38996AB5">
+    <AssociationSet Name="FK__tbl_quest__q_fk___45F365D3" Association="Self.FK__tbl_quest__q_fk___45F365D3">
       <End Role="tbl_category" EntitySet="tbl_category" />
       <End Role="tbl_question" EntitySet="tbl_question" />
     </AssociationSet>
-    <AssociationSet Name="FK__tbl_setEx__exam___34C8D9D1" Association="Self.FK__tbl_setEx__exam___34C8D9D1">
+    <AssociationSet Name="FK__tbl_setEx__exam___46E78A0C" Association="Self.FK__tbl_setEx__exam___46E78A0C">
       <End Role="student" EntitySet="student" />
       <End Role="tbl_setExam" EntitySet="tbl_setExam" />
     </AssociationSet>

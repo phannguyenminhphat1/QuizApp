@@ -1,0 +1,39 @@
+﻿@model QuizApp.Models.student
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>sregister</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <h2>Student Register</h2>
+                <div class="container">
+                    @using (@Html.BeginForm())
+                    {
+                            <label for="email">Email:</label>
+                            @Html.TextBoxFor(x => x.std_name, htmlAttributes: new { @class = "form-control" })
+                            <label for="email">Password:</label>
+                            @Html.TextBoxFor(x => x.std_password, htmlAttributes: new { @class = "form-control" })
+                            <label for="pwd">Image:</label>
+                            <input type="file" class="form-control btn btn-info" id="imgfile" />
+                        <input type="submit" value="Register Now !" class="btn btn-block" />
+                    }
+                </div>
+                </div>
+            </div>
+                
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

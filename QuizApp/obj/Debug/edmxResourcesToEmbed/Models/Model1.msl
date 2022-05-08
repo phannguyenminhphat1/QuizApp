@@ -20,10 +20,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_category">
+      <EntityTypeMapping TypeName="QuizAppModel.tbl_category">
+        <MappingFragment StoreEntitySet="tbl_category">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+          <ScalarProperty Name="cat_fk_ad_id" ColumnName="cat_fk_ad_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tbl_question">
       <EntityTypeMapping TypeName="QuizAppModel.tbl_question">
         <MappingFragment StoreEntitySet="tbl_question">
-          <ScalarProperty Name="q_fk_catid" ColumnName="q_fk_catid" />
           <ScalarProperty Name="q_id" ColumnName="q_id" />
           <ScalarProperty Name="q_text" ColumnName="q_text" />
           <ScalarProperty Name="QA" ColumnName="QA" />
@@ -31,6 +39,7 @@
           <ScalarProperty Name="QC" ColumnName="QC" />
           <ScalarProperty Name="QD" ColumnName="QD" />
           <ScalarProperty Name="QCorrectAns" ColumnName="QCorrectAns" />
+          <ScalarProperty Name="q_fk_catid" ColumnName="q_fk_catid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -42,15 +51,6 @@
           <ScalarProperty Name="exam_fk_stu" ColumnName="exam_fk_stu" />
           <ScalarProperty Name="exam_name" ColumnName="exam_name" />
           <ScalarProperty Name="std_score" ColumnName="std_score" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tbl_category">
-      <EntityTypeMapping TypeName="QuizAppModel.tbl_category">
-        <MappingFragment StoreEntitySet="tbl_category">
-          <ScalarProperty Name="cat_fk_ad_id" ColumnName="cat_fk_ad_id" />
-          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
-          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

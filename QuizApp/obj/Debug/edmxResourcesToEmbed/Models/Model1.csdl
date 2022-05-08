@@ -8,7 +8,7 @@
     <Property Name="std_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="std_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="std_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="tbl_setExam" Relationship="Self.FK__tbl_setEx__exam___34C8D9D1" FromRole="student" ToRole="tbl_setExam" />
+    <NavigationProperty Name="tbl_setExam" Relationship="Self.FK__tbl_setEx__exam___46E78A0C" FromRole="student" ToRole="tbl_setExam" />
   </EntityType>
   <EntityType Name="tbl_admin">
     <Key>
@@ -17,7 +17,17 @@
     <Property Name="ad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ad_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ad_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="tbl_category" Relationship="QuizAppModel.FK__tbl_categ__cat_f__37A5467C" FromRole="tbl_admin" ToRole="tbl_category" />
+    <NavigationProperty Name="tbl_category" Relationship="Self.FK__tbl_categ__cat_f__44FF419A" FromRole="tbl_admin" ToRole="tbl_category" />
+  </EntityType>
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cat_fk_ad_id" Type="Int32" />
+    <NavigationProperty Name="tbl_admin" Relationship="Self.FK__tbl_categ__cat_f__44FF419A" FromRole="tbl_category" ToRole="tbl_admin" />
+    <NavigationProperty Name="tbl_question" Relationship="Self.FK__tbl_quest__q_fk___45F365D3" FromRole="tbl_category" ToRole="tbl_question" />
   </EntityType>
   <EntityType Name="tbl_question">
     <Key>
@@ -31,7 +41,7 @@
     <Property Name="QD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="QCorrectAns" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="q_fk_catid" Type="Int32" />
-    <NavigationProperty Name="tbl_category" Relationship="QuizAppModel.FK__tbl_quest__q_fk___38996AB5" FromRole="tbl_question" ToRole="tbl_category" />
+    <NavigationProperty Name="tbl_category" Relationship="Self.FK__tbl_quest__q_fk___45F365D3" FromRole="tbl_question" ToRole="tbl_category" />
   </EntityType>
   <EntityType Name="tbl_setExam">
     <Key>
@@ -42,9 +52,9 @@
     <Property Name="exam_fk_stu" Type="Int32" />
     <Property Name="exam_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="std_score" Type="Int32" />
-    <NavigationProperty Name="student" Relationship="Self.FK__tbl_setEx__exam___34C8D9D1" FromRole="tbl_setExam" ToRole="student" />
+    <NavigationProperty Name="student" Relationship="Self.FK__tbl_setEx__exam___46E78A0C" FromRole="tbl_setExam" ToRole="student" />
   </EntityType>
-  <Association Name="FK__tbl_setEx__exam___34C8D9D1">
+  <Association Name="FK__tbl_setEx__exam___46E78A0C">
     <End Role="student" Type="Self.student" Multiplicity="0..1" />
     <End Role="tbl_setExam" Type="Self.tbl_setExam" Multiplicity="*" />
     <ReferentialConstraint>
@@ -56,38 +66,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QuizAppEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="students" EntityType="Self.student" />
-    <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" />
-    <EntitySet Name="tbl_question" EntityType="Self.tbl_question" />
-    <EntitySet Name="tbl_setExam" EntityType="Self.tbl_setExam" />
-    <AssociationSet Name="FK__tbl_setEx__exam___34C8D9D1" Association="Self.FK__tbl_setEx__exam___34C8D9D1">
-      <End Role="student" EntitySet="students" />
-      <End Role="tbl_setExam" EntitySet="tbl_setExam" />
-    </AssociationSet>
-    <EntitySet Name="tbl_category" EntityType="QuizAppModel.tbl_category" />
-    <AssociationSet Name="FK__tbl_categ__cat_f__37A5467C" Association="QuizAppModel.FK__tbl_categ__cat_f__37A5467C">
-      <End Role="tbl_admin" EntitySet="tbl_admin" />
-      <End Role="tbl_category" EntitySet="tbl_category" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tbl_quest__q_fk___38996AB5" Association="QuizAppModel.FK__tbl_quest__q_fk___38996AB5">
-      <End Role="tbl_category" EntitySet="tbl_category" />
-      <End Role="tbl_question" EntitySet="tbl_question" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="tbl_category">
-    <Key>
-      <PropertyRef Name="cat_id" />
-    </Key>
-    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="cat_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="cat_fk_ad_id" Type="Int32" />
-    <NavigationProperty Name="tbl_admin" Relationship="QuizAppModel.FK__tbl_categ__cat_f__37A5467C" FromRole="tbl_category" ToRole="tbl_admin" />
-    <NavigationProperty Name="tbl_question" Relationship="QuizAppModel.FK__tbl_quest__q_fk___38996AB5" FromRole="tbl_category" ToRole="tbl_question" />
-  </EntityType>
-  <Association Name="FK__tbl_categ__cat_f__37A5467C">
-    <End Type="QuizAppModel.tbl_admin" Role="tbl_admin" Multiplicity="0..1" />
-    <End Type="QuizAppModel.tbl_category" Role="tbl_category" Multiplicity="*" />
+  <Association Name="FK__tbl_categ__cat_f__44FF419A">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tbl_admin">
         <PropertyRef Name="ad_id" />
@@ -97,9 +78,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tbl_quest__q_fk___38996AB5">
-    <End Type="QuizAppModel.tbl_category" Role="tbl_category" Multiplicity="0..1" />
-    <End Type="QuizAppModel.tbl_question" Role="tbl_question" Multiplicity="*" />
+  <Association Name="FK__tbl_quest__q_fk___45F365D3">
+    <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+    <End Role="tbl_question" Type="Self.tbl_question" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tbl_category">
         <PropertyRef Name="cat_id" />
@@ -109,4 +90,23 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="QuizAppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" />
+    <EntitySet Name="tbl_category" EntityType="Self.tbl_category" />
+    <EntitySet Name="tbl_question" EntityType="Self.tbl_question" />
+    <EntitySet Name="tbl_setExam" EntityType="Self.tbl_setExam" />
+    <AssociationSet Name="FK__tbl_setEx__exam___46E78A0C" Association="Self.FK__tbl_setEx__exam___46E78A0C">
+      <End Role="student" EntitySet="students" />
+      <End Role="tbl_setExam" EntitySet="tbl_setExam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_categ__cat_f__44FF419A" Association="Self.FK__tbl_categ__cat_f__44FF419A">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_category" EntitySet="tbl_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_quest__q_fk___45F365D3" Association="Self.FK__tbl_quest__q_fk___45F365D3">
+      <End Role="tbl_category" EntitySet="tbl_category" />
+      <End Role="tbl_question" EntitySet="tbl_question" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>
